@@ -1,0 +1,73 @@
+<Datos>
+    <idUsuario>Id1</idUsuario>
+    <Tarea>
+        <idTarea>tarea0</idTarea>
+        <instrucciones>Logeate en eGela (no recogemos datos) (No cierres el navegador)</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/</urlFinal>
+        <tiempo>200</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea1</idTarea>
+        <instrucciones>Localiza la página de inicio del departamento del profesor de la asignatura (Lenguajes y Sistemas Informáticos)</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/course/view.php?id=3514</urlFinal>
+        <tiempo>200</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea2</idTarea>
+        <instrucciones>Encuentra la fecha y hora del examen final de la asignatura en la convocatoria ordinaria</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea3</idTarea>
+        <instrucciones>Accede a las calificaciones que has obtenido en las diferentes actividades evaluables de la asignatura</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/grade/report/user/index.php?id=3514</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea4</idTarea>
+        <instrucciones>Localiza en el catálogo de la biblioteca de la Universidad el libro que aparecen en primer lugar en la bibliografía de la asignatura</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/mod/resource/view.php?id=210587</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea5</idTarea>
+        <instrucciones>Accede al documento con el enunciado del laboratorio 12</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/mod/forum/discuss.php?d=29250</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea6</idTarea>
+        <instrucciones>Localiza la fecha y hora del control 3 de la asignatura</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea7</idTarea>
+        <instrucciones>Localiza la dirección de correo electrónico del profesor de la asignatura</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea8</idTarea>
+        <instrucciones>Localiza el cuestionario para darse de baja de la evaluación continua</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+    <Tarea>
+        <idTarea>tarea9</idTarea>
+        <instrucciones>Localiza el aviso en el que se informa de la fecha, lugar y contenidos de los controles de la asignatura</instrucciones>
+        <urlInicio>https://egela1718.ehu.eus/</urlInicio>
+        <urlFinal>https://egela1718.ehu.eus/</urlFinal>
+        <tiempo>20</tiempo>
+    </Tarea>
+</Datos>
