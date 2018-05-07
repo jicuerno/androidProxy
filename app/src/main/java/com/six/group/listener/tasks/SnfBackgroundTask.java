@@ -1,7 +1,6 @@
 package com.six.group.listener.tasks;
 
-import android.content.res.AssetManager;
-import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.util.Log;
 
 import com.six.group.listener.activities.SnifferActivity;
@@ -14,6 +13,7 @@ import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.filters.RequestFilter;
 import net.lightbody.bmp.filters.ResponseFilter;
+import net.lightbody.bmp.mitm.MyRootCertificateGenerator;
 import net.lightbody.bmp.mitm.RootCertificateGenerator;
 import net.lightbody.bmp.mitm.manager.ImpersonatingMitmManager;
 import net.lightbody.bmp.proxy.CaptureType;
@@ -26,17 +26,12 @@ import org.androidannotations.annotations.RootContext;
 import org.androidannotations.annotations.UiThread;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.MyRemoteWebDriver;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 
@@ -44,8 +39,6 @@ import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpResponse;
 
 import static java.net.URLDecoder.decode;
-
-import android.provider.Settings.Secure;
 
 /**
  * Created by user on 3/04/18.
@@ -70,15 +63,14 @@ public class SnfBackgroundTask {
     @UiThread
     void setupSniffer(Integer puerto, InetAddress direccion) {
 
-        RootCertificateGenerator rootCG = RootCertificateGenerator.builder().build();
-
+        MyRootCertificateGenerator rootCG = MyRootCertificateGenerator.builder().build();
         String path = activity.getFilesDir().getPath();
         File cer = new File(path, "/certificate.cer");
         File pem = new File(path, "/private-key.pem");
         File p12 = new File(path, "/keystore.p12");
-        //rootCG.saveRootCertificateAsPemFile(cer);
-        // rootCG.savePrivateKeyAsPemFile(pem, "password");
-        // rootCG.saveRootCertificateAndKey("PKCS12", p12, "privateKeyAlias", "password");
+        rootCG.saveRootCertificateAsPemFile(cer);
+        rootCG.savePrivateKeyAsPemFile(pem, "password");
+        rootCG.saveRootCertificateAndKey("PKCS12", p12, "privateKeyAlias", "password");
 
         ImpersonatingMitmManager mitmManager = ImpersonatingMitmManager.builder().rootCertificateSource(rootCG).build();
 
@@ -197,21 +189,21 @@ public class SnfBackgroundTask {
             proxy.setSslProxy(proxyInfo);
             proxy.setNoProxy(null);
 
-            DesiredCapabilities dc = DesiredCapabilities.firefox();
+            DesiredCapabilities dc = DesiredCapabilities.android();
             dc.setCapability("proxy", proxy);
             dc.setCapability("deviceName", deviceId);
             dc.setCapability("platformName", "Android");
-            dc.setCapability("platformVersion", "7.0");
+            dc.setCapability("platformVersion", "5.1");
 
-            FirefoxProfile ffProfile = new FirefoxProfile();
+           /* FirefoxProfile ffProfile = new FirefoxProfile();
             ffProfile.setPreference("acceptInsecureCerts", true);
             ffProfile.setPreference("acceptSslCerts", true);
             ffProfile.setPreference("enableNativeEvents", true);
             ffProfile.setPreference("network.proxy.type", 1);
             ffProfile.setPreference("security.mixed_content.block_active_content", false);
-            dc.setCapability("firefox_profile", ffProfile);
+            dc.setCapability("firefox_profile", ffProfile);*/
 
-     //       webDriver = new RemoteWebDriver(dc);
+            //  webDriver = new MyRemoteWebDriver(dc);
 
         } catch (Exception e) {
             e.printStackTrace();
